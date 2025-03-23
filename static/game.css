@@ -1,0 +1,85 @@
+/* Basic reset and styles */
+body {
+    margin: 0;
+    background-color: black;
+    color: white;
+    height: 100vh;
+    font-family: sans-serif;
+  }
+  
+  /* The main game container as a grid */
+  #game {
+    height: 98%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2vw;
+    padding: 1vh 1vw;
+  }
+  
+  /* Responsive breakpoints */
+  @media (min-width: 1440px) {
+    #game {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    #game {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+  }
+  
+  @media (max-width: 420px) {
+    #game {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+    }
+  }
+  
+  /* Each card fills its grid cell */
+  .card {
+    font-size: min(20vh, 20vw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  /* Optional: a hover effect */
+  .card:hover {
+    transform: scale(1.03);
+  }
+  
+  /* The front is shown by default */
+  .card .front {
+    display: flex;
+  }
+  
+  /* The back is hidden by default */
+  .card .back {
+    display: none;
+  }
+  
+  /* A flipped card hides the front and shows the back */
+  .card.flipped .front {
+    display: none;
+  }
+  .card.flipped .back {
+    display: flex;
+  }
+  
+  /* A matched card remains showing the back */
+  .card.matched .front {
+    display: none;
+  }
+  .card.matched .back {
+    display: flex;
+    opacity: 0.7; /* Slight fade to indicate it's matched */
+  }
+  
