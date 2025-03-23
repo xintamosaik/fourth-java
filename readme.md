@@ -3,7 +3,7 @@
 A simple single-player memory game that uses fruit and veggie emojis as cards. The goal is to flip two matching emojis in as few attempts as possible.
 
 ## How to Play
-1. Open `index.html` in your web browser (or serve it locally).
+1. Open `https://xintamosaik.github.io/memoji/` in your web browser (or serve it locally).
 2. Flip any card to see its emoji.
 3. Flip a second card:
    - If they match, they remain face-up as "matched."
