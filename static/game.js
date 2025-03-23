@@ -59,9 +59,19 @@ function addCard(emoji) {
 }
 
 
-
+/**
+ * The emojis used in the memory game.
+ */
 const emojis = ["🍑", "🥑 ", "🍓", "🧄", "🍄", "🍆"]
+
+/**
+ * Doubles the emojis to create pairs.
+ */
 const doubled = emojis.concat(emojis);
+
+/**
+ * Shuffles the doubled emojis.
+ */
 const shuffled = doubled.sort(() => Math.random() - 0.5);
 for (let emoji of shuffled) {
   window.game.appendChild(addCard(emoji));
