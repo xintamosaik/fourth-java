@@ -4,6 +4,35 @@
     <meta charset="UTF-8" />
     <title>chickens-out</title>
     <style>
+      #game {
+        height: 98%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 2vw;
+      }
+      
+      @media (min-width: 1440px) {
+        #game {
+          grid-template-columns: repeat(6, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+        }
+      }
+      
+      @media (max-width: 640px) {
+        #game {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(4, 1fr);
+        }
+      }
+
+      @media (max-width: 420px) {
+        #game {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(6, 1fr);
+        }
+      }
+
       .card {
         font-size: min(20vh, 20vw);
         display: flex;
@@ -36,16 +65,7 @@
     </style>
   </head>
   <body style="margin: 0; background-color: black; color: white; height: 100vh">
-    <main
-      id="game"
-      style="
-        border: 1px solid pink;
-        height: 98%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-      "
-    ></main>
+    <main id="game"></main>
 
     <script src="/static/game.js"></script>
   </body>
