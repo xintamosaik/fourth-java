@@ -1,6 +1,37 @@
-const state = {
-  try: 0,
-  lastCard: null,
+function handleCardClick(event){
+  const card = event.currentTarget;
+  if (card.classList.contains("flipped")){
+      return;
+  }
+  if (card.classList.contains("matched")){
+      return;
+  }
+  console.log({card});
+  const cards = document.querySelectorAll(".card");
+  console.log({cards});
+  
+  const flipped = document.querySelectorAll(".flipped"); 
+  console.log({flipped});
+
+  const pairFlipped = flipped.length === 2;
+
+  
+  // if we have two flipped cards already, flip them back
+  if (pairFlipped){
+      const [first, second] = flipped;
+      if (first.innerHTML.trim() === second.innerHTML.trim()){
+          first.classList.add("matched");
+          second.classList.add("matched");
+      }
+      for (let card of flipped){
+          card.classList.remove("flipped");
+      }
+  }
+  card.classList.toggle("flipped");
+
+
+  
+        
 }
 function addCard(emoji){
     const card = document.createElement("div");
@@ -9,45 +40,17 @@ function addCard(emoji){
     const front = document.createElement("div");
     front.className = "front";
     front.innerHTML = "🎴";
-    front.hidden = false;
+ 
     
     const back = document.createElement("div");
     back.className = "back";
     back.innerHTML = emoji;
-    back.hidden = true;
+  
 
     card.appendChild(front);
     card.appendChild(back);
     
-    card.onclick = function(){
-
-        state.try++;
-        if (state.try === 1){
-            state.lastCard = card;
-        }
-
-        if (state.try === 2){
-            if (state.lastCard.lastChild.innerHTML === card.lastChild.innerHTML){
-                state.try = 0;
-                state.lastCard = null;
-            
-                card.classList.add("found");
-                lastCard?.classList.add("found");
-                return
-            }
-        }
-        
-        if (state.try == 3){
-            state.try = 0;
-            const cards = document.querySelectorAll(".card:not(.found)"); 
-            for (let card of cards){
-                card.firstChild.hidden = false;
-                card.lastChild.hidden = true;
-            }
-        }
-        front.hidden = front.hidden ? false : true;
-        back.hidden = back.hidden ? false : true;
-    }
+    card.onclick = handleCardClick;
     document.querySelector("#game").appendChild(card);
     
 }

@@ -11,7 +11,28 @@
             align-items: center;
             height: 100%;
         }
+        .card .front {
+            display: flex;
+        }
+        .card.flipped .front {
+            display: none;
+        }
 
+        .card.matched .front {
+            display: none;
+        }
+
+        .card .back {
+            display: none;
+        }
+
+        .card.flipped .back {
+            display: flex;
+        }
+
+        .card.matched .back {
+            display: flex;
+        }
     </style>
 
 </head>
