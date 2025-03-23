@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>chickens-out</title>
     <style>
-        .card {
-            font-size: 20vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-        .card .front {
-            display: flex;
-        }
-        .card.flipped .front {
-            display: none;
-        }
+      .card {
+        font-size: min(20vh, 20vw);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+      .card .front {
+        display: flex;
+      }
+      .card.flipped .front {
+        display: none;
+      }
 
-        .card.matched .front {
-            display: none;
-        }
+      .card.matched .front {
+        display: none;
+      }
 
-        .card .back {
-            display: none;
-        }
+      .card .back {
+        display: none;
+      }
 
-        .card.flipped .back {
-            display: flex;
-        }
+      .card.flipped .back {
+        display: flex;
+      }
 
-        .card.matched .back {
-            display: flex;
-        }
+      .card.matched .back {
+        display: flex;
+      }
     </style>
+  </head>
+  <body style="margin: 0; background-color: black; color: white; height: 100vh">
+    <main
+      id="game"
+      style="
+        border: 1px solid pink;
+        height: 98%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+      "
+    ></main>
 
-</head>
-<body style="margin: 0; background-color: black; color:white;  height: 100vh;">
-
-    <main id="game" style="border:1px solid pink; height: 98%; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr">
-
-    </main>
-
-<script src="/static/game.js"></script>
-</body>
+    <script src="/static/game.js"></script>
+  </body>
 </html>

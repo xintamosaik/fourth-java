@@ -59,8 +59,10 @@ function addCard(emoji) {
 }
 
 
-const emojis = ["🍑", "🍑", "🥑 ", "🥑", "🍓", "🍓", "🧄", "🧄", "🍄", "🍄", "🍆 ", "🍆 "]
-const shuffled = emojis.sort(() => Math.random() - 0.5);
+
+const emojis = ["🍑", "🥑 ", "🍓", "🧄", "🍄", "🍆"]
+const doubled = emojis.concat(emojis);
+const shuffled = doubled.sort(() => Math.random() - 0.5);
 for (let emoji of shuffled) {
   window.game.appendChild(addCard(emoji));
 }
